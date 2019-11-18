@@ -24,7 +24,7 @@ class Professionel
     private $verifier;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Documents", mappedBy="professionnel")
+     * @ORM\OneToMany(targetEntity="App\Entity\Documents", mappedBy="professionnel",cascade={"persist", "remove"})
      */
     private $documents;
 

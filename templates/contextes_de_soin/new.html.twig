@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ContextesDeSoin{% endblock %}
+
+{% block body %}
+    <h1>Create new ContextesDeSoin</h1>
+
+    {{ include('contextes_de_soin/_form.html.twig') }}
+
+    <a href="{{ path('contextes_de_soin_index') }}">back to list</a>
+{% endblock %}

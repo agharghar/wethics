@@ -86,8 +86,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-
-        return $this->render('dashboard/dashboard.html.twig',[]);
+        return null;
 
     }
 

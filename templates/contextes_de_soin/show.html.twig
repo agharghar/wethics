@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContextesDeSoin{% endblock %}
+
+{% block body %}
+    <h1>ContextesDeSoin</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contextes_de_soin.id }}</td>
+            </tr>
+            <tr>
+                <th>Contexte_de_soin</th>
+                <td>{{ contextes_de_soin.contexteDeSoin }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('contextes_de_soin_index') }}">back to list</a>
+
+    <a href="{{ path('contextes_de_soin_edit', {'id': contextes_de_soin.id}) }}">edit</a>
+
+    {{ include('contextes_de_soin/_delete_form.html.twig') }}
+{% endblock %}

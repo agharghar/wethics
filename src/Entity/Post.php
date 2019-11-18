@@ -45,7 +45,7 @@ class Post
     private $users;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Commentaire", inversedBy="posts")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Commentaire", inversedBy="posts",cascade={"persist", "remove"})
      */
     private $commentaires;
 
@@ -55,27 +55,27 @@ class Post
     private $roles;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ObjectifsDeSoin", mappedBy="post")
+     * @ORM\OneToMany(targetEntity="App\Entity\ObjectifsDeSoin", mappedBy="post",cascade={"persist", "remove"})
      */
     private $objectifsDeSoins;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ObjectifsEthiques", mappedBy="post")
+     * @ORM\OneToMany(targetEntity="App\Entity\ObjectifsEthiques", mappedBy="post",cascade={"persist", "remove"})
      */
     private $objectifsEthiques;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ModelesDeSoin", mappedBy="post")
+     * @ORM\OneToMany(targetEntity="App\Entity\ModelesDeSoin", mappedBy="post",cascade={"persist", "remove"})
      */
     private $modelesDeSoins;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ContextesDeSoin", mappedBy="post")
+     * @ORM\OneToMany(targetEntity="App\Entity\ContextesDeSoin", mappedBy="post",cascade={"persist", "remove"})
      */
     private $contextesDeSoins;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\MethodesEvaluation", mappedBy="post")
+     * @ORM\OneToMany(targetEntity="App\Entity\MethodesEvaluation", mappedBy="post",cascade={"persist", "remove"})
      */
     private $methodesEvaluations;
 

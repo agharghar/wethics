@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit MethodesEvaluation{% endblock %}
+
+{% block body %}
+    <h1>Edit MethodesEvaluation</h1>
+
+    {{ include('methodes_evaluation/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('methodes_evaluation_index') }}">back to list</a>
+
+    {{ include('methodes_evaluation/_delete_form.html.twig') }}
+{% endblock %}

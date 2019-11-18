@@ -32,7 +32,7 @@ class User implements UserInterface , \Serializable
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255,unique=true)
      */
     private $email;
 
@@ -57,7 +57,7 @@ class User implements UserInterface , \Serializable
     private $professionel;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\RatingUser", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="App\Entity\RatingUser", inversedBy="users",cascade={"persist", "remove"})
      */
     private $Rating;
 
@@ -68,12 +68,12 @@ class User implements UserInterface , \Serializable
     private $roles;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Commentaire", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Commentaire", inversedBy="users",cascade={"persist", "remove"})
      */
     private $commentaires;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Post", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Post", inversedBy="users",cascade={"persist", "remove"})
      */
     private $posts;
 

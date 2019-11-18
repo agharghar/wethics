@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MethodesEvaluation{% endblock %}
+
+{% block body %}
+    <h1>MethodesEvaluation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ methodes_evaluation.id }}</td>
+            </tr>
+            <tr>
+                <th>Methode_evaluation</th>
+                <td>{{ methodes_evaluation.methodeEvaluation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('methodes_evaluation_index') }}">back to list</a>
+
+    <a href="{{ path('methodes_evaluation_edit', {'id': methodes_evaluation.id}) }}">edit</a>
+
+    {{ include('methodes_evaluation/_delete_form.html.twig') }}
+{% endblock %}

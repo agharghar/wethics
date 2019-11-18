@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ObjectifsDeSoin index{% endblock %}
+
+{% block body %}
+    <h1>ObjectifsDeSoin index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Objectif_de_soin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for objectifs_de_soin in objectifs_de_soins %}
+            <tr>
+                <td>{{ objectifs_de_soin.id }}</td>
+                <td>{{ objectifs_de_soin.objectifDeSoin }}</td>
+                <td>
+                    <a href="{{ path('objectifs_de_soin_show', {'id': objectifs_de_soin.id}) }}">show</a>
+                    <a href="{{ path('objectifs_de_soin_edit', {'id': objectifs_de_soin.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('objectifs_de_soin_new') }}">Create new</a>
+{% endblock %}

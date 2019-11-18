@@ -17,7 +17,7 @@ class Role
     private $id;
 
     /**
-     * @ORM\Column(type="string",  columnDefinition="ENUM('simpleUser', 'admin','professionel')")
+     * @ORM\Column(type="string")
      */
     private $role;
 
