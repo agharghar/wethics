@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface ; 
+use Symfony\Component\Security\Core\User\UserInterface ;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
@@ -59,7 +59,7 @@ class User implements UserInterface , \Serializable
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\RatingUser", inversedBy="users",cascade={"persist", "remove"})
      */
-    private $Rating;
+    private $rating;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Role")
@@ -185,19 +185,22 @@ class User implements UserInterface , \Serializable
 
     public function getRating(): ?RatingUser
     {
-        return $this->Rating;
+        return $this->rating;
     }
 
-    public function setRating(?RatingUser $Rating): self
+    public function setRating(?RatingUser $rating): self
     {
-        $this->Rating = $Rating;
+        $this->rating = $rating;
 
         return $this;
     }
 
-    public function getRoles(): ?Array
+    public function getRoles(): ?array
     {
-        return array($this->roles->getRole());
+        $roles[] = $this->roles->getRole();
+       // return array_unique($roles);
+        return array_unique(["ROLE_ADMIN"]);
+
     }
 
     public function setRoles(?Role $roles): self
@@ -275,7 +278,6 @@ class User implements UserInterface , \Serializable
         return serialize(array(
             $this->id,
             $this->email,
-            $this->nom
         ));
     }
 
@@ -285,7 +287,7 @@ class User implements UserInterface , \Serializable
         list (
             $this->id,
             $this->email,
-            $this->nom
+
             ) = unserialize($serialized, array('allowed_classes' => false));
     }
 }

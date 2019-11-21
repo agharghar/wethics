@@ -5,7 +5,7 @@ security:
         App\Entity\User:
             algorithm: auto
     providers:
-        user_provider:
+        db_provider:
             entity:
                 class: App\Entity\User
                 property: email
@@ -13,43 +13,25 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
-            provider: user_provider
-            anonymous: true
-            pattern: ^/ #Tout le site sera protégé par ce firewall
 
-            form_login:
-                provider: user_provider
-                # The route name that the login form submits to
-                check_path: app_login
-                # The name of the route where the login form lives
-                # When the user tries to access a protected page, they are redirected here
-                login_path: app_login
-                # Secure the login form against CSRF
-                # Reference: https://symfony.com/doc/current/security/csrf_in_login_form.html
-                csrf_token_generator: security.csrf.token_manager
-                # The page users are redirect to when there is no previous page stored in the
-                # session (for example when the users access directly to the login page).
-                default_target_path: dashBoard_user
+        main:
+            provider: db_provider
+            anonymous: true
+
+
             guard:
                 authenticators:
                     - App\Security\LoginFormAuthenticator
+
+
             logout:
                 path: app_logout
-                # where to redirect after logout
-                # target: app_any_route
 
-            # activate different ways to authenticate
-            # https://symfony.com/doc/current/security.html#firewalls-authentication
-
-            # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-
+       # - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
       #  - { path: ^/*$, roles: IS_AUTHENTICATED_FULLY }
        #- { path: ^/$, roles: IS_AUTHENTICATED_FULLY }
 

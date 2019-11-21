@@ -32,7 +32,7 @@ class Post
     /**
      * @ORM\Column(type="datetime")
      */
-    private $date_mise_en_ligne;
+    private $dateMiseEnLigne;
 
     /**
      * @ORM\Column(type="boolean")
@@ -341,4 +341,17 @@ class Post
 
         return $this;
     }
+
+    public function getDateMiseEnLigne(): ?\DateTimeInterface
+    {
+        return $this->dateMiseEnLigne;
+    }
+
+    public function setDateMiseEnLigne(\DateTimeInterface $dateMiseEnLigne): self
+    {
+        $this->dateMiseEnLigne = $dateMiseEnLigne;
+
+        return $this;
+    }
+
 }
