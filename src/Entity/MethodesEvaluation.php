@@ -22,9 +22,14 @@ class MethodesEvaluation
     private $methode_evaluation;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\post", inversedBy="methodesEvaluations")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Opinion", inversedBy="methodes_evaluation",cascade={"persist"})
      */
-    private $post;
+    private $opinion;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Probleme", inversedBy="methodesEvaluation")
+     */
+    private $probleme;
 
     public function getId(): ?int
     {
@@ -43,14 +48,26 @@ class MethodesEvaluation
         return $this;
     }
 
-    public function getPost(): ?post
+    public function getOpinion(): ?Opinion
     {
-        return $this->post;
+        return $this->opinion;
     }
 
-    public function setPost(?post $post): self
+    public function setOpinion(?Opinion $opinion): self
     {
-        $this->post = $post;
+        $this->opinion = $opinion;
+
+        return $this;
+    }
+
+    public function getProbleme(): ?Probleme
+    {
+        return $this->probleme;
+    }
+
+    public function setProbleme(?Probleme $probleme): self
+    {
+        $this->probleme = $probleme;
 
         return $this;
     }

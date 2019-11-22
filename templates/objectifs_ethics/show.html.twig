@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ObjectifsEthics{% endblock %}
+
+{% block body %}
+    <h1>ObjectifsEthics</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ objectifs_ethic.id }}</td>
+            </tr>
+            <tr>
+                <th>Objectif_ethics</th>
+                <td>{{ objectifs_ethic.objectifEthics }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('objectifs_ethics_index') }}">back to list</a>
+
+    <a href="{{ path('objectifs_ethics_edit', {'id': objectifs_ethic.id}) }}">edit</a>
+
+    {{ include('objectifs_ethics/_delete_form.html.twig') }}
+{% endblock %}

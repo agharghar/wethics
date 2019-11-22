@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ContextesDeSoin;
-use App\Form\ContextesDeSoinType;
+use App\Form\ContextesDeSoin1Type;
 use App\Repository\ContextesDeSoinRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class ContextesDeSoinController extends AbstractController
     public function new(Request $request): Response
     {
         $contextesDeSoin = new ContextesDeSoin();
-        $form = $this->createForm(ContextesDeSoinType::class, $contextesDeSoin);
+        $form = $this->createForm(ContextesDeSoin1Type::class, $contextesDeSoin);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class ContextesDeSoinController extends AbstractController
      */
     public function edit(Request $request, ContextesDeSoin $contextesDeSoin): Response
     {
-        $form = $this->createForm(ContextesDeSoinType::class, $contextesDeSoin);
+        $form = $this->createForm(ContextesDeSoin1Type::class, $contextesDeSoin);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

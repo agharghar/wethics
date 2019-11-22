@@ -3,21 +3,22 @@
 namespace App\DataFixtures;
 
 
-use App\Entity\Commentaire;
+use App\Entity\EfficaciteCO;
+use App\Entity\EfficaciteME;
+use App\Entity\ModelesDeSoins;
+use App\Entity\ObjectifsEthics;
+use App\Entity\Opinion;
 use App\Entity\ContextesDeSoin;
-use App\Entity\Documents;
+
 use App\Entity\MethodesEvaluation;
-use App\Entity\ModelesDeSoin;
+
 use App\Entity\ObjectifsDeSoin;
-use App\Entity\ObjectifsEthiques;
-use App\Entity\Post;
-use App\Entity\Professionel;
-use App\Entity\RatingUser;
+
+use App\Entity\Probleme;
 use App\Entity\Role;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-
 use Faker\Factory;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -40,9 +41,7 @@ class AppFixtures extends Fixture
         $faker = Factory::create('us_US');
         $populator = new \Faker\ORM\Doctrine\Populator($faker, $manager);
 
-        /*
-         * set user role
-         * */
+
         $role = new Role();
         $role1 = new Role();
         $role2 = new Role();
@@ -55,41 +54,29 @@ class AppFixtures extends Fixture
         $manager->persist($role1);
         $manager->persist($role2);
         $manager->flush();
-        /*************/
 
 
-        /*
-         * rating user
-         * */
-        $this->ratingUser($manager,$faker);
 
-        $this->commentaires($manager,$faker,$populator);
-        /*
-         * ethics
-         *
-         */
+        $this->efficacite($manager,$faker);
 
-        $this->ethics($populator);
+                $this->opinions($manager,$faker,$populator);
 
 
-        /*documents*/
-        $this->documents($populator);
+                  $this->ethics($populator);
 
 
-        $user = new User();
-        $user->setEmail("admin@admin.com");
 
-        $password = $this->encoder->encodePassword($user, 'a');
-        $user->setPassword($password);
-        $user->setNom("admin");
-        $user->setPrenom("admin");
-        $user->setDateNaissance($faker->dateTime());
-        $user->setTel($faker->phoneNumber);
-        $user->setDateInscription($faker->dateTime());
-        $user->setRoles($role);
+                       $user = new User();
+                       $user->setEmail("admin@admin.com");
 
-        $manager->persist($user);
-        $manager->flush();
+                       $password = $this->encoder->encodePassword($user, 'a');
+                       $user->setPasswod($password);
+                       $user->setPseudo($faker->lastName);
+                       $user->setDateInscription($faker->dateTime());
+                       $user->setRoles($role);
+
+                       $manager->persist($user);
+                       $manager->flush();
 
 
 
@@ -102,92 +89,88 @@ class AppFixtures extends Fixture
 
 
 
-        /*post*/
-        $this->posts($populator,$manager);
 
-    /*professionel */
-        $this->professionels($populator,$manager);
+                       $this->probleme($populator,$manager);
 
 
 
-        $commentaires = $manager->getRepository(Commentaire::class)->findAll();
-        $ratingUser = $manager->getRepository(RatingUser::class)->findAll();
-        $posts =$manager->getRepository(Post::class)->findAll() ;
-        $ethics =  $manager->getRepository(MethodesEvaluation::class)->findAll() ;
-        $ethics1 =  $manager->getRepository(ObjectifsEthiques::class)->findAll() ;
-        $ethics2 =  $manager->getRepository(ObjectifsDeSoin::class)->findAll() ;
-        $ethics3 =  $manager->getRepository(ModelesDeSoin::class)->findAll() ;
-        $ethics4=  $manager->getRepository(ContextesDeSoin::class)->findAll() ;
-        $doc=  $manager->getRepository(Documents::class)->findAll() ;
-        $pro=  $manager->getRepository(Professionel::class)->findAll() ;
-        $roles=  $manager->getRepository(Role::class)->findAll() ;
-
-
-        /*add 50 users */
-        for ($x = 0; $x < 50; $x++) {
-
-
-            $user = new User();
-            $user->setEmail($faker->email);
-
-            $password = $this->encoder->encodePassword($user, $faker->text(50));
-            $user->setPassword($password);
-            $user->setNom($faker->name);
-            $user->setPrenom($faker->lastName);
-            $user->setDateNaissance($faker->dateTime());
-            $user->setTel($faker->phoneNumber);
-            $user->setDateInscription($faker->dateTime());
-            $user->setRoles( $roles[$x%3]);
-            $user->setRating($ratingUser[$x]);
-            $user->setPosts($posts[$x]);
-            $user->setCommentaires($commentaires[$x]);
-
-            $manager->persist($user);
-            $manager->flush();
-
-
-        }
-
-
-        /* doc-> pro / eth -> post relations */
-        for ($x = 0; $x < 50; $x++) {
-            $doc[$x]->setProfessionnel($pro[0]);
-            $ethics[$x]->setPost($posts[$x]);
-            $ethics1[$x]->setPost($posts[$x]);
-            $ethics2[$x]->setPost($posts[$x]);
-            $ethics3[$x]->setPost($posts[$x]);
-            $ethics4[$x]->setPost($posts[$x]);
-
-            $manager->persist($ethics[$x]);
-            $manager->persist($ethics1[$x]);
-            $manager->persist($ethics2[$x]);
-            $manager->persist($ethics3[$x]);
-            $manager->persist($ethics4[$x]);
-            $manager->flush();
-        }
-
-
-        $users = $manager->getRepository(User::class)->findAll();
+                          $opinion = $manager->getRepository(opinion::class)->findAll();
+                          $efficaciteCO = $manager->getRepository(EfficaciteCO::class)->findAll();
+                          $efficaciteme = $manager->getRepository(EfficaciteME::class)->findAll();
+                          $probleme =$manager->getRepository(Probleme::class)->findAll() ;
+                          $ethics1 =  $manager->getRepository(ObjectifsEthics::class)->findAll() ;
+                          $ethics2 =  $manager->getRepository(ObjectifsDeSoin::class)->findAll() ;
+                          $ethics =  $manager->getRepository(MethodesEvaluation::class)->findAll() ;
+                          $ethics3 =  $manager->getRepository(ModelesDeSoins::class)->findAll() ;
+                          $ethics4=  $manager->getRepository(ContextesDeSoin::class)->findAll() ;
+                          $opinion=  $manager->getRepository(Opinion::class)->findAll() ;
 
 
 
-        for ($x = 1; $x < 50; $x++) {
+                          $roles=  $manager->getRepository(Role::class)->findAll() ;
 
-            $populator->addEntity(Professionel::class, 1,$customColumnFormatters = array(
-                'user' => $users[$x])
-            );
-            $populator->execute();
-        }
+
+                              for ($x = 0; $x < 50; $x++) {
+
+
+                                  $user = new User();
+                                  $user->setEmail($faker->email);
+
+                                  $password = $this->encoder->encodePassword($user, $faker->text(50));
+                                  $user->setPasswod($password);
+                                  $user->setPseudo($faker->unique()->lastName);
+
+                                  $user->setDateInscription($faker->dateTime());
+                                  $user->setRoles( $roles[$x%3]);
+                                  $user->addEfficaciteCO($efficaciteCO[$x]);
+                                  $user->addEfficaciteME($efficaciteme[$x]);
+                                  $user->addOpinion($opinion[$x]);
+                                  $user->addProbleme($probleme[$x]);
+
+                                  $manager->persist($user);
+                                  $manager->flush();
+
+
+                              }
+
+
+                                        for ($x = 0; $x < 50; $x++) {
+
+                                            $ethics[$x]->setProbleme($probleme[$x]);
+                                            $ethics1[$x]->setProbleme($probleme[$x]);
+                                            $ethics2[$x]->setProbleme($probleme[$x]);
+                                            $ethics3[$x]->setProbleme($probleme[$x]);
+                                            $ethics4[$x]->setProbleme($probleme[$x]);
+                                            $opinion[$x]->setProbleme($probleme[$x]);
+                                            $efficaciteCO[$x]->setOpinion($opinion[$x]);
+                                            $efficaciteme[$x]->setOpinion($opinion[$x]);
+
+                                            $manager->persist($ethics[$x]);
+                                            $manager->persist($ethics1[$x]);
+                                            $manager->persist($ethics2[$x]);
+                                            $manager->persist($ethics3[$x]);
+                                            $manager->persist($ethics4[$x]);
+                                            $manager->flush();
+                                        }
+
+
 
     }
 
 
-    public function ratingUser(ObjectManager $manager,$faker)
+    public function efficacite(ObjectManager $manager,$faker)
     {
 
 
         $populator = new \Faker\ORM\Doctrine\Populator($faker, $manager);
-        $populator->addEntity(\App\Entity\RatingUser::class, 50,$customColumnFormatters = array(
+        $populator->addEntity(\App\Entity\EfficaciteME::class, 50,$customColumnFormatters = array(
+            'risque' =>  function() {return random_int(0,100) ;},
+            'benefice' =>  function() { return random_int(0,100); })
+
+        );
+
+
+        $populator->addEntity(\App\Entity\EfficaciteCO::class, 50,$customColumnFormatters = array(
             'risque' =>  function() {return random_int(0,100) ;},
             'benefice' =>  function() { return random_int(0,100); })
 
@@ -203,8 +186,8 @@ class AppFixtures extends Fixture
     {
 
 
-        $populator->addEntity(ObjectifsEthiques::class, 50);
-        $populator->addEntity(ModelesDeSoin::class, 50);
+        $populator->addEntity(ObjectifsEthics::class, 50);
+        $populator->addEntity(ModelesDeSoins::class, 50);
         $populator->addEntity(ContextesDeSoin::class, 50);
         $populator->addEntity(MethodesEvaluation::class, 50);
         $populator->addEntity(ObjectifsDeSoin::class, 50);
@@ -214,21 +197,24 @@ class AppFixtures extends Fixture
         $populator->execute();
     }
 
-    public function commentaires(ObjectManager $manager,$faker,$populator){
+    public function opinions(ObjectManager $manager,$faker,$populator){
 
 
-        $ratingUser = $manager->getRepository(RatingUser::class)->findAll();
+        $efficaciteCO = $manager->getRepository(EfficaciteCO::class)->findAll();
+        $efficacitemes = $manager->getRepository(EfficaciteME::class)->findAll();
 
 
 
 
         for ($x = 0; $x < 50; $x++) {
 
-            $populator->addEntity(Commentaire::class, 1, $customColumnFormatters = array(
+            $populator->addEntity(opinion::class, 1, $customColumnFormatters = array(
                 'moyenne_benefice' => function () { return random_int(15, 75);},
                 'moyenne_risque' => function () {return random_int(15, 60);},
-                'rating' => $ratingUser[$x])
+                'efficacitecos' => [$efficaciteCO[$x] ],
+                'efficacitemes' => [$efficacitemes[$x]])
             );
+
 
             $populator->execute();
         }
@@ -236,24 +222,17 @@ class AppFixtures extends Fixture
 
     }
 
-    public function documents($populator){
 
-        $populator->addEntity(Documents::class, 50);
+    public function probleme($populator,$manager){
 
-        $populator->execute();
+        $opinions = $manager->getRepository(opinion::class)->findAll();
 
-    }
-
-    public function posts($populator,$manager){
-
-        $commentaires = $manager->getRepository(Commentaire::class)->findAll();
-        $roles = $manager->getRepository(Role::class)->findAll();
 
         for ($x = 0; $x < 50; $x++) {
 
-            $populator->addEntity(Post::class, 1,$customColumnFormatters = array(
-                'commentaires' => $commentaires[$x] ,
-                'roles' => $roles[$x%3] ,
+            $populator->addEntity(Probleme::class, 1,$customColumnFormatters = array(
+                'opinions' => [$opinions[$x]]    ,
+
             )
             );
             $populator->execute();
@@ -261,25 +240,6 @@ class AppFixtures extends Fixture
 
     }
 
-
-    public  function professionels($populator,$manager){
-
-
-        $users = $manager->getRepository(User::class)->findAll();
-
-
-
-        for ($x = 0; $x < count($users); $x++) {
-
-            $populator->addEntity(Professionel::class, 1,$customColumnFormatters = array(
-                'user' => $users[$x])
-            );
-            $populator->execute();
-        }
-
-
-
-    }
 
 
 }

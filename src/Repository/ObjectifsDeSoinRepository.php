@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+
 use App\Entity\ObjectifsDeSoin;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -20,15 +21,15 @@ class ObjectifsDeSoinRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return ObjectifsDeSoin[] Returns an array of ObjectifsDeSoin objects
+    //  * @return ModelesDeSoin[] Returns an array of ModelesDeSoin objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
+        return $this->createQueryBuilder('m')
+            ->andWhere('m.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('o.id', 'ASC')
+            ->orderBy('m.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -37,10 +38,10 @@ class ObjectifsDeSoinRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?ObjectifsDeSoin
+    public function findOneBySomeField($value): ?ModelesDeSoin
     {
-        return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
+        return $this->createQueryBuilder('m')
+            ->andWhere('m.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

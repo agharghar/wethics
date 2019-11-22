@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EfficaciteME index{% endblock %}
+
+{% block body %}
+    <h1>EfficaciteME index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Risque</th>
+                <th>Benefice</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for efficacite_m_e in efficacite_m_es %}
+            <tr>
+                <td>{{ efficacite_m_e.id }}</td>
+                <td>{{ efficacite_m_e.risque }}</td>
+                <td>{{ efficacite_m_e.benefice }}</td>
+                <td>
+                    <a href="{{ path('efficacite_m_e_show', {'id': efficacite_m_e.id}) }}">show</a>
+                    <a href="{{ path('efficacite_m_e_edit', {'id': efficacite_m_e.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('efficacite_m_e_new') }}">Create new</a>
+{% endblock %}

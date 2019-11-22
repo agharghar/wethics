@@ -13,7 +13,8 @@ class ObjectifsDeSoinType extends AbstractType
     {
         $builder
             ->add('objectif_de_soin')
-            ->add('post')
+            ->add('opinion')
+            ->add('probleme')
         ;
     }
 

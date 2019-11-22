@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EfficaciteCO{% endblock %}
+
+{% block body %}
+    <h1>EfficaciteCO</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ efficacite_c_o.id }}</td>
+            </tr>
+            <tr>
+                <th>Risque</th>
+                <td>{{ efficacite_c_o.risque }}</td>
+            </tr>
+            <tr>
+                <th>Benefice</th>
+                <td>{{ efficacite_c_o.benefice }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('efficacite_c_o_index') }}">back to list</a>
+
+    <a href="{{ path('efficacite_c_o_edit', {'id': efficacite_c_o.id}) }}">edit</a>
+
+    {{ include('efficacite_c_o/_delete_form.html.twig') }}
+{% endblock %}

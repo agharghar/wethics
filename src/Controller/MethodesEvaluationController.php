@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\MethodesEvaluation;
-use App\Form\MethodesEvaluationType;
+use App\Form\MethodesEvaluation1Type;
 use App\Repository\MethodesEvaluationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class MethodesEvaluationController extends AbstractController
     public function new(Request $request): Response
     {
         $methodesEvaluation = new MethodesEvaluation();
-        $form = $this->createForm(MethodesEvaluationType::class, $methodesEvaluation);
+        $form = $this->createForm(MethodesEvaluation1Type::class, $methodesEvaluation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class MethodesEvaluationController extends AbstractController
      */
     public function edit(Request $request, MethodesEvaluation $methodesEvaluation): Response
     {
-        $form = $this->createForm(MethodesEvaluationType::class, $methodesEvaluation);
+        $form = $this->createForm(MethodesEvaluation1Type::class, $methodesEvaluation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

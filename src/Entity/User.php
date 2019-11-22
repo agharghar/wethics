@@ -2,8 +2,11 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface ;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
@@ -17,103 +20,71 @@ class User implements UserInterface , \Serializable
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=20,unique=true)
      */
-    private $nom;
+    private $pseudo;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $prenom;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $password;
-
-    /**
-     * @ORM\Column(type="string", length=255,unique=true)
+     * @ORM\Column(type="string", length=60,unique=true)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="date")
-     */
-    private $date_naissance;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
-    private $tel;
+    private $passwod;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="date")
      */
     private $date_inscription;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Professionel", mappedBy="user", cascade={"persist", "remove"})
-     */
-    private $professionel;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\RatingUser", inversedBy="users",cascade={"persist", "remove"})
-     */
-    private $rating;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Role")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Role", inversedBy="users")
      */
     private $roles;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Commentaire", inversedBy="users",cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\EfficaciteCO", mappedBy="user")
      */
-    private $commentaires;
+    private $efficacite_c_o;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Post", inversedBy="users",cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\EfficaciteME", mappedBy="user")
      */
-    private $posts;
+    private $efficacite_m_e;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Opinion", mappedBy="user")
+     */
+    private $opinions;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Probleme", mappedBy="user")
+     */
+    private $problemes;
+
+    public function __construct()
+    {
+        $this->efficacite_c_o = new ArrayCollection();
+        $this->efficacite_m_e = new ArrayCollection();
+        $this->opinions = new ArrayCollection();
+        $this->problemes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getPseudo(): ?string
     {
-        return $this->nom;
+        return $this->pseudo;
     }
 
-    public function setNom(string $nom): self
+    public function setPseudo(string $pseudo): self
     {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
-
-    public function setPrenom(string $prenom): self
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
+        $this->pseudo = $pseudo;
 
         return $this;
     }
@@ -130,26 +101,14 @@ class User implements UserInterface , \Serializable
         return $this;
     }
 
-    public function getDateNaissance(): ?\DateTimeInterface
+    public function getPasswod(): ?string
     {
-        return $this->date_naissance;
+        return $this->passwod;
     }
 
-    public function setDateNaissance(\DateTimeInterface $date_naissance): self
+    public function setPasswod(string $passwod): self
     {
-        $this->date_naissance = $date_naissance;
-
-        return $this;
-    }
-
-    public function getTel(): ?string
-    {
-        return $this->tel;
-    }
-
-    public function setTel(string $tel): self
-    {
-        $this->tel = $tel;
+        $this->passwod = $passwod;
 
         return $this;
     }
@@ -159,79 +118,185 @@ class User implements UserInterface , \Serializable
         return $this->date_inscription;
     }
 
-    public function setDateInscription(?\DateTimeInterface $date_inscription): self
+    public function setDateInscription(\DateTimeInterface $date_inscription): self
     {
         $this->date_inscription = $date_inscription;
 
         return $this;
     }
 
-    public function getProfessionel(): ?Professionel
+    public function getRoles(): ?role
     {
-        return $this->professionel;
+        return $this->roles;
     }
 
-    public function setProfessionel(Professionel $professionel): self
-    {
-        $this->professionel = $professionel;
-
-        // set the owning side of the relation if necessary
-        if ($professionel->getUser() !== $this) {
-            $professionel->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function getRating(): ?RatingUser
-    {
-        return $this->rating;
-    }
-
-    public function setRating(?RatingUser $rating): self
-    {
-        $this->rating = $rating;
-
-        return $this;
-    }
-
-    public function getRoles(): ?array
-    {
-        $roles[] = $this->roles->getRole();
-       // return array_unique($roles);
-        return array_unique(["ROLE_ADMIN"]);
-
-    }
-
-    public function setRoles(?Role $roles): self
+    public function setRoles(?role $roles): self
     {
         $this->roles = $roles;
 
         return $this;
     }
 
-    public function getCommentaires(): ?Commentaire
+    /**
+     * @return Collection|EfficaciteCO[]
+     */
+    public function getEfficaciteCO(): Collection
     {
-        return $this->commentaires;
+        return $this->efficacite_c_o;
     }
 
-    public function setCommentaires(?Commentaire $commentaires): self
+    public function addEfficaciteCO(EfficaciteCO $efficaciteCO): self
     {
-        $this->commentaires = $commentaires;
+        if (!$this->efficacite_c_o->contains($efficaciteCO)) {
+            $this->efficacite_c_o[] = $efficaciteCO;
+            $efficaciteCO->setUser($this);
+        }
 
         return $this;
     }
 
-    public function getPosts(): ?Post
+    public function removeEfficaciteCO(EfficaciteCO $efficaciteCO): self
     {
-        return $this->posts;
-    }
-
-    public function setPosts(?Post $posts): self
-    {
-        $this->posts = $posts;
+        if ($this->efficacite_c_o->contains($efficaciteCO)) {
+            $this->efficacite_c_o->removeElement($efficaciteCO);
+            // set the owning side to null (unless already changed)
+            if ($efficaciteCO->getUser() === $this) {
+                $efficaciteCO->setUser(null);
+            }
+        }
 
         return $this;
+    }
+
+    /**
+     * @return Collection|EfficaciteME[]
+     */
+    public function getEfficaciteME(): Collection
+    {
+        return $this->efficacite_m_e;
+    }
+
+    public function addEfficaciteME(EfficaciteME $efficaciteME): self
+    {
+        if (!$this->efficacite_m_e->contains($efficaciteME)) {
+            $this->efficacite_m_e[] = $efficaciteME;
+            $efficaciteME->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEfficaciteME(EfficaciteME $efficaciteME): self
+    {
+        if ($this->efficacite_m_e->contains($efficaciteME)) {
+            $this->efficacite_m_e->removeElement($efficaciteME);
+            // set the owning side to null (unless already changed)
+            if ($efficaciteME->getUser() === $this) {
+                $efficaciteME->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Opinion[]
+     */
+    public function getOpinions(): Collection
+    {
+        return $this->opinions;
+    }
+
+    public function addOpinion(Opinion $opinion): self
+    {
+        if (!$this->opinions->contains($opinion)) {
+            $this->opinions[] = $opinion;
+            $opinion->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOpinion(Opinion $opinion): self
+    {
+        if ($this->opinions->contains($opinion)) {
+            $this->opinions->removeElement($opinion);
+            // set the owning side to null (unless already changed)
+            if ($opinion->getUser() === $this) {
+                $opinion->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Probleme[]
+     */
+    public function getProblemes(): Collection
+    {
+        return $this->problemes;
+    }
+
+    public function addProbleme(Probleme $probleme): self
+    {
+        if (!$this->problemes->contains($probleme)) {
+            $this->problemes[] = $probleme;
+            $probleme->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProbleme(Probleme $probleme): self
+    {
+        if ($this->problemes->contains($probleme)) {
+            $this->problemes->removeElement($probleme);
+            // set the owning side to null (unless already changed)
+            if ($probleme->getUser() === $this) {
+                $probleme->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * String representation of object
+     * @link https://php.net/manual/en/serializable.serialize.php
+     * @return string the string representation of the object or null
+     * @since 5.1.0
+     */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->email,
+            $this->pseudo
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->email,
+            $this->pseudo
+            ) = unserialize($serialized, array('allowed_classes' => false));
+    }
+
+    /**
+     * Returns the password used to authenticate the user.
+     *
+     * This should be the encoded password. On authentication, a plain-text
+     * password will be salted, encoded, and then compared to this value.
+     *
+     * @return string|null The encoded password if any
+     */
+    public function getPassword()
+    {
+        // TODO: Implement getPassword() method.
     }
 
     /**
@@ -253,7 +318,7 @@ class User implements UserInterface , \Serializable
      */
     public function getUsername()
     {
-        return  $this->email ;
+        $this->pseudo;
     }
 
     /**
@@ -265,29 +330,5 @@ class User implements UserInterface , \Serializable
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
-    }
-
-    /**
-     * String representation of object
-     * @link https://php.net/manual/en/serializable.serialize.php
-     * @return string the string representation of the object or null
-     * @since 5.1.0
-     */
-    public function serialize()
-    {
-        return serialize(array(
-            $this->id,
-            $this->email,
-        ));
-    }
-
-    /** @see \Serializable::unserialize() */
-    public function unserialize($serialized)
-    {
-        list (
-            $this->id,
-            $this->email,
-
-            ) = unserialize($serialized, array('allowed_classes' => false));
     }
 }

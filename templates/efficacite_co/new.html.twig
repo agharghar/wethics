@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New EfficaciteCO{% endblock %}
+
+{% block body %}
+    <h1>Create new EfficaciteCO</h1>
+
+    {{ include('efficacite_c_o/_form.html.twig') }}
+
+    <a href="{{ path('efficacite_c_o_index') }}">back to list</a>
+{% endblock %}

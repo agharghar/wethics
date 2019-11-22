@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Probleme index{% endblock %}
+
+{% block body %}
+    <h1>Probleme index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Date_mise_online</th>
+                <th>Fermer</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for probleme in problemes %}
+            <tr>
+                <td>{{ probleme.id }}</td>
+                <td>{{ probleme.titre }}</td>
+                <td>{{ probleme.description }}</td>
+                <td>{{ probleme.dateMiseOnline ? probleme.dateMiseOnline|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ probleme.fermer ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('probleme_show', {'id': probleme.id}) }}">show</a>
+                    <a href="{{ path('probleme_edit', {'id': probleme.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('probleme_new') }}">Create new</a>
+{% endblock %}

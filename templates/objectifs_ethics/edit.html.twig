@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ObjectifsEthics{% endblock %}
+
+{% block body %}
+    <h1>Edit ObjectifsEthics</h1>
+
+    {{ include('objectifs_ethics/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('objectifs_ethics_index') }}">back to list</a>
+
+    {{ include('objectifs_ethics/_delete_form.html.twig') }}
+{% endblock %}

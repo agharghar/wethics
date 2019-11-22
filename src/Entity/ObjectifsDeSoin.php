@@ -22,9 +22,14 @@ class ObjectifsDeSoin
     private $objectif_de_soin;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Post", inversedBy="objectifsDeSoins")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Opinion", inversedBy="objectifs_de_soins",cascade={"persist"})
      */
-    private $post;
+    private $opinion;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Probleme", inversedBy="objectifsDeSoin")
+     */
+    private $probleme;
 
     public function getId(): ?int
     {
@@ -43,14 +48,26 @@ class ObjectifsDeSoin
         return $this;
     }
 
-    public function getPost(): ?Post
+    public function getOpinion(): ?Opinion
     {
-        return $this->post;
+        return $this->opinion;
     }
 
-    public function setPost(?Post $post): self
+    public function setOpinion(?Opinion $opinion): self
     {
-        $this->post = $post;
+        $this->opinion = $opinion;
+
+        return $this;
+    }
+
+    public function getProbleme(): ?Probleme
+    {
+        return $this->probleme;
+    }
+
+    public function setProbleme(?Probleme $probleme): self
+    {
+        $this->probleme = $probleme;
 
         return $this;
     }

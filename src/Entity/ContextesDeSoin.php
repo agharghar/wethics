@@ -22,9 +22,14 @@ class ContextesDeSoin
     private $contexte_de_soin;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\post", inversedBy="contextesDeSoins")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Opinion", inversedBy="contextes_de_soin",cascade={"persist"})
      */
-    private $post;
+    private $opinion;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Probleme", inversedBy="contextesDeSoin")
+     */
+    private $probleme;
 
     public function getId(): ?int
     {
@@ -43,14 +48,26 @@ class ContextesDeSoin
         return $this;
     }
 
-    public function getPost(): ?post
+    public function getOpinion(): ?Opinion
     {
-        return $this->post;
+        return $this->opinion;
     }
 
-    public function setPost(?post $post): self
+    public function setOpinion(?Opinion $opinion): self
     {
-        $this->post = $post;
+        $this->opinion = $opinion;
+
+        return $this;
+    }
+
+    public function getProbleme(): ?Probleme
+    {
+        return $this->probleme;
+    }
+
+    public function setProbleme(?Probleme $probleme): self
+    {
+        $this->probleme = $probleme;
 
         return $this;
     }

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit EfficaciteME{% endblock %}
+
+{% block body %}
+    <h1>Edit EfficaciteME</h1>
+
+    {{ include('efficacite_m_e/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('efficacite_m_e_index') }}">back to list</a>
+
+    {{ include('efficacite_m_e/_delete_form.html.twig') }}
+{% endblock %}

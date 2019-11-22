@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Role;
-use App\Form\RoleType;
+use App\Form\Role1Type;
 use App\Repository\RoleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class RoleController extends AbstractController
     public function new(Request $request): Response
     {
         $role = new Role();
-        $form = $this->createForm(RoleType::class, $role);
+        $form = $this->createForm(Role1Type::class, $role);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class RoleController extends AbstractController
      */
     public function edit(Request $request, Role $role): Response
     {
-        $form = $this->createForm(RoleType::class, $role);
+        $form = $this->createForm(Role1Type::class, $role);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

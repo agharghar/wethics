@@ -13,7 +13,8 @@ class MethodesEvaluationType extends AbstractType
     {
         $builder
             ->add('methode_evaluation')
-            ->add('post')
+            ->add('opinion')
+            ->add('probleme')
         ;
     }
 

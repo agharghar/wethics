@@ -13,7 +13,8 @@ class ContextesDeSoinType extends AbstractType
     {
         $builder
             ->add('contexte_de_soin')
-            ->add('post')
+            ->add('opinion')
+            ->add('probleme')
         ;
     }
 

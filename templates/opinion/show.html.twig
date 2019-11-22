@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Opinion{% endblock %}
+
+{% block body %}
+    <h1>Opinion</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ opinion.id }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ opinion.description }}</td>
+            </tr>
+            <tr>
+                <th>Moyenne_risque</th>
+                <td>{{ opinion.moyenneRisque }}</td>
+            </tr>
+            <tr>
+                <th>Moyenne_benefice</th>
+                <td>{{ opinion.moyenneBenefice }}</td>
+            </tr>
+            <tr>
+                <th>Flag_solution</th>
+                <td>{{ opinion.flagSolution ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('opinion_index') }}">back to list</a>
+
+    <a href="{{ path('opinion_edit', {'id': opinion.id}) }}">edit</a>
+
+    {{ include('opinion/_delete_form.html.twig') }}
+{% endblock %}
