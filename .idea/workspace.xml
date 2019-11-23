@@ -2,143 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad9419ef-0a4a-44a5-a0a5-c2268e60a786" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Repository/EfficaciteCORepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/EfficaciteMERepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/ModelesDeSoinsRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/OpinionRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/ProblemeRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CommentaireController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ContextesDeSoinController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DashBoardController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DocumentsController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MethodesEvaluationController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ModelesDeSoinController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ObjectifsDeSoinController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ObjectifsEthiquesController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PostController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfessionelController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RatingUserController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RoleController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Commentaire.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ContextesDeSoin.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Documents.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/MethodesEvaluation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ModelesDeSoin.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ObjectifsDeSoin.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ObjectifsEthiques.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Post.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Professionel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/RatingUser.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Role.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/CommentaireType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ContextesDeSoinType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/DocumentsType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/MethodesEvaluationType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ModelesDeSoinType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ObjectifsDeSoinType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ObjectifsEthiquesType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PostType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ProfessionelType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RatingUserType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RoleType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191117135405.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191117153313.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CommentaireRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ContextesDeSoinRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/DocumentsRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/MethodeEvaluationRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/MethodesEvaluationRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ModelesDeSoinRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ObjectifsDeSoinRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ObjectifsEthiquesRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PostRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProfessionelRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/RatingUserRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/RoleRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/commentaire/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/commentaire/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/commentaire/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/commentaire/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/commentaire/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/commentaire/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contextes_de_soin/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contextes_de_soin/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contextes_de_soin/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contextes_de_soin/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contextes_de_soin/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contextes_de_soin/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/dashboard.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/dashboard_admin.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/dashboard_setting.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/documents/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/documents/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/documents/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/documents/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/documents/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/documents/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/methodes_evaluation/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/methodes_evaluation/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/methodes_evaluation/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/methodes_evaluation/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/methodes_evaluation/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/methodes_evaluation/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modeles_de_soin/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modeles_de_soin/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modeles_de_soin/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modeles_de_soin/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modeles_de_soin/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modeles_de_soin/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/objectifs_de_soin/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/objectifs_de_soin/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/objectifs_de_soin/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/objectifs_de_soin/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/objectifs_de_soin/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/objectifs_de_soin/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/objectifs_ethiques/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/objectifs_ethiques/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/objectifs_ethiques/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/objectifs_ethiques/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/objectifs_ethiques/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/objectifs_ethiques/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/post/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/post/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/post/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/post/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/post/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/post/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/professionel/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/professionel/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/professionel/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/professionel/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/professionel/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/professionel/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/rating_user/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/rating_user/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/rating_user/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/rating_user/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/rating_user/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/rating_user/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/role/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/role/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/role/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/role/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/role/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/role/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/show.html.twig" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -343,7 +207,7 @@
       <workItem from="1574359513983" duration="1218000" />
       <workItem from="1574416744114" duration="6395000" />
       <workItem from="1574428502534" duration="12632000" />
-      <workItem from="1574445690446" duration="2092000" />
+      <workItem from="1574445690446" duration="3382000" />
     </task>
     <servers />
   </component>
